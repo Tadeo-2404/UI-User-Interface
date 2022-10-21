@@ -28,5 +28,5 @@ class Particula :
             "Distancia: " + str(self.__distancia)
         )
 
-particula = Particula(1,2,3,4,5,6,7,8,9)
-print(particula)
+# particula = Particula(1,2,3,4,5,6,7,8,9)
+# print(particula)
