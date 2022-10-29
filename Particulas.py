@@ -15,7 +15,6 @@ class Particula :
 
     def __str__(self):
         return (
-            "INFORMACION" + "\n" +
             "ID: " + str(self.__id) + "\n" +
             "OrigenX: " + str(self.__origen_x) + "\n" +
             "OrigenY: " + str(self.__origen_y) + "\n" +
@@ -25,7 +24,7 @@ class Particula :
             "Red: " + str(self.__red) + "\n" +
             "Green: " + str(self.__green) + "\n" +
             "Blue: " + str(self.__blue) + "\n" +
-            "Distancia: " + str(self.__distancia)
+            "Distancia: " + str(self.__distancia) + "\n" + "\n"
         )
 
 # particula = Particula(1,2,3,4,5,6,7,8,9)

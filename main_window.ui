@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
-    <height>336</height>
+    <width>429</width>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,61 +32,28 @@ padding: 3px;</string>
        <string>UI-Particulas</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="1">
-        <widget class="QSpinBox" name="input_destinoX">
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_origenX">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-outline: none;
-border: none;</string>
+          <string notr="true">text-transform: uppercase;</string>
          </property>
-         <property name="maximum">
-          <number>500</number>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QSpinBox" name="input_green">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-outline: none;
-border: none;</string>
-         </property>
-         <property name="maximum">
-          <number>255</number>
+         <property name="text">
+          <string>Origen X</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="label_origenY">
          <property name="styleSheet">
           <string notr="true">text-transform: uppercase;</string>
          </property>
          <property name="text">
-          <string>Velocidad</string>
+          <string>Origen Y</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QSpinBox" name="input_velocidad">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-outline: none;
-border: none;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="styleSheet">
-          <string notr="true">text-transform: uppercase;</string>
-         </property>
-         <property name="text">
-          <string>Destino Y</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_4">
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_red">
          <property name="styleSheet">
           <string notr="true">text-transform: uppercase;
 </string>
@@ -96,51 +63,17 @@ border: none;</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QSpinBox" name="input_red">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-outline: none;
-border: none;</string>
-         </property>
-         <property name="maximum">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="label_id">
          <property name="styleSheet">
           <string notr="true">text-transform: uppercase;</string>
          </property>
          <property name="text">
-          <string>Destino X</string>
+          <string>ID</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
-        <widget class="QSpinBox" name="input_blue">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-outline: none;
-border: none;</string>
-         </property>
-         <property name="maximum">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="styleSheet">
-          <string notr="true">text-transform: uppercase;</string>
-         </property>
-         <property name="text">
-          <string>Green</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
+       <item row="4" column="1">
         <widget class="QSpinBox" name="input_destinoY">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
@@ -152,8 +85,173 @@ border: none;</string>
          </property>
         </widget>
        </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="input_origenY">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_destinoX">
+         <property name="styleSheet">
+          <string notr="true">text-transform: uppercase;</string>
+         </property>
+         <property name="text">
+          <string>Destino X</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QSpinBox" name="input_blue">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0" colspan="2">
+        <widget class="QPushButton" name="agregarFinal_btn">
+         <property name="styleSheet">
+          <string notr="true">border: none;
+outline: none;
+text-transform: uppercase;
+color: rgb(255, 255, 255);
+background-color: rgb(226, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>Agregar Final</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_green">
+         <property name="styleSheet">
+          <string notr="true">text-transform: uppercase;</string>
+         </property>
+         <property name="text">
+          <string>Green</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="input_velocidad">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QSpinBox" name="input_green">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="2">
+        <widget class="QPushButton" name="agregarInicio_btn">
+         <property name="styleSheet">
+          <string notr="true">border: none;
+outline: none;
+text-transform: uppercase;
+color: rgb(255, 255, 255);
+background-color: rgb(226, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>Agregar Inicio</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_destinoY">
+         <property name="styleSheet">
+          <string notr="true">text-transform: uppercase;</string>
+         </property>
+         <property name="text">
+          <string>Destino Y</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="input_id">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="input_origenX">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QSpinBox" name="input_red">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
+       </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="label_velocidad">
+         <property name="styleSheet">
+          <string notr="true">text-transform: uppercase;</string>
+         </property>
+         <property name="text">
+          <string>Velocidad</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="input_destinoX">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+outline: none;
+border: none;</string>
+         </property>
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_blue">
          <property name="styleSheet">
           <string notr="true">text-transform: uppercase;</string>
          </property>
@@ -162,7 +260,36 @@ border: none;</string>
          </property>
         </widget>
        </item>
+       <item row="11" column="0" colspan="2">
+        <widget class="QPushButton" name="mostrarTodo_btn">
+         <property name="styleSheet">
+          <string notr="true">border: none;
+outline: none;
+text-transform: uppercase;
+color: rgb(255, 255, 255);
+background-color: rgb(226, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>Mostrar todo</string>
+         </property>
+        </widget>
+       </item>
       </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPlainTextEdit" name="plainTextEdit">
+      <property name="maximumSize">
+       <size>
+        <width>167</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="plainText">
+       <string/>
+      </property>
      </widget>
     </item>
    </layout>
@@ -172,7 +299,7 @@ border: none;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>382</width>
+     <width>429</width>
      <height>22</height>
     </rect>
    </property>
