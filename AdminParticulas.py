@@ -1,4 +1,5 @@
 from Particulas import Particula
+import json
 
 class AdminParticulas:
     def __init__(self):
@@ -22,6 +23,17 @@ class AdminParticulas:
         return "".join(
            str(particula) for particula in self.__particulas
         )
+
+    def guardarArchivo(self, ubicacion):
+        with open(ubicacion, 'w') as archivo:
+            lista = [particula.to_dict() for particula in self.__particulas]
+            json.dump(lista, archivo, indent=5)
+
+    def abrirArchivo(self, ubicacion):
+        with open(ubicacion, 'r') as archivo:
+            lista = json.load(archivo)
+            self.__particulas = [Particula(**particula) for particula in lista]
+
 
 # particula01 = Particula(1, 900, 200, 30, 20, 40 ,54, 21, 84)
 # particula02 = Particula(2, 100, 0, 39, 19, 53 ,28, 43, 91)

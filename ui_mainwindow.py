@@ -17,8 +17,12 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(429, 444)
+        MainWindow.resize(466, 444)
         MainWindow.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.actionGuardar = QAction(MainWindow)
+        self.actionGuardar.setObjectName(u"actionGuardar")
+        self.actionAbrir = QAction(MainWindow)
+        self.actionAbrir.setObjectName(u"actionAbrir")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
@@ -214,11 +218,17 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 429, 22))
+        self.menubar.setGeometry(QRect(0, 0, 466, 22))
+        self.menuArchivo = QMenu(self.menubar)
+        self.menuArchivo.setObjectName(u"menuArchivo")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        self.menubar.addAction(self.menuArchivo.menuAction())
+        self.menuArchivo.addAction(self.actionGuardar)
+        self.menuArchivo.addAction(self.actionAbrir)
 
         self.retranslateUi(MainWindow)
 
@@ -227,6 +237,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.actionGuardar.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.actionAbrir.setText(QCoreApplication.translate("MainWindow", u"Abrir", None))
         self.particular_container.setTitle(QCoreApplication.translate("MainWindow", u"UI-Particulas", None))
         self.label_origenX.setText(QCoreApplication.translate("MainWindow", u"Origen X", None))
         self.label_origenY.setText(QCoreApplication.translate("MainWindow", u"Origen Y", None))
@@ -241,5 +253,6 @@ class Ui_MainWindow(object):
         self.label_blue.setText(QCoreApplication.translate("MainWindow", u"Blue", None))
         self.mostrarTodo_btn.setText(QCoreApplication.translate("MainWindow", u"Mostrar todo", None))
         self.plainTextEdit.setPlainText("")
+        self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 
