@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QMainWindow
+from PySide2.QtWidgets import QMainWindow, QFileDialog
 from PySide2.QtCore import Slot
 from Particulas import Particula
 from AdminParticulas import AdminParticulas
@@ -13,6 +13,29 @@ class MainWindow(QMainWindow):
         self.ui.agregarInicio_btn.clicked.connect(self.agregarInicio)
         self.ui.agregarFinal_btn.clicked.connect(self.agregarFinal)
         self.ui.mostrarTodo_btn.clicked.connect(self.mostrarTodo)
+
+        self.ui.actionAbrir.triggered.connect(self.abrirArchivoJSON)
+        self.ui.actionGuardar.triggered.connect(self.guardarArchivoJSON)
+
+    @Slot()
+    def abrirArchivoJSON(self):
+        ubicacion = QFileDialog.getOpenFileName(
+            self, 
+            'Abrir Archivo',
+            '.',
+            'JSON (*.json)'
+        )[0]
+        self.admin.abrirArchivo(ubicacion)
+
+    @Slot()
+    def guardarArchivoJSON(self):
+        ubicacion = QFileDialog.getSaveFileName(
+            self, 
+            'Guardar Archivo',
+            '.',
+            'JSON (*.json)'
+        )[0]
+        self.admin.guardarArchivo(ubicacion)
     
     @Slot()
     def agregarInicio(self) :
