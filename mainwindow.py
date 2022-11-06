@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QMainWindow, QFileDialog
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox
 from PySide2.QtCore import Slot
 from Particulas import Particula
 from AdminParticulas import AdminParticulas
@@ -16,6 +16,76 @@ class MainWindow(QMainWindow):
 
         self.ui.actionAbrir.triggered.connect(self.abrirArchivoJSON)
         self.ui.actionGuardar.triggered.connect(self.guardarArchivoJSON)
+
+        self.ui.btn_mostrar.clicked.connect(self.mostrarTabla)
+        self.ui.btn_buscar.clicked.connect(self.buscarParticula)
+
+    @Slot()
+    def buscarParticula(self):
+        id = self.ui.input_buscar.text()
+        encontrado = False
+        for particula in self.admin:
+            if(id == str(particula.getID)):
+                self.ui.table.clear()
+                id = QTableWidgetItem(str(particula.getID))
+                origen_x = QTableWidgetItem(str(particula.getOrigenX))
+                origen_y = QTableWidgetItem(str(particula.getOrigenY))
+                destino_x = QTableWidgetItem(str(particula.getDestinoX))
+                destino_y = QTableWidgetItem(str(particula.getDestinoY))
+                velocidad = QTableWidgetItem(str(particula.getVelocidad))
+                red = QTableWidgetItem(str(particula.getRed))
+                green = QTableWidgetItem(str(particula.getGreen))
+                blue = QTableWidgetItem(str(particula.getBlue))
+                distancia = QTableWidgetItem(str(particula.getDistancia))
+                self.ui.table.setItem(0, 0, id)
+                self.ui.table.setItem(0, 1, origen_x)
+                self.ui.table.setItem(0, 2, origen_y)
+                self.ui.table.setItem(0, 3, destino_x)
+                self.ui.table.setItem(0, 4, destino_y)
+                self.ui.table.setItem(0, 5, velocidad)
+                self.ui.table.setItem(0, 6, red)
+                self.ui.table.setItem(0, 7, green)
+                self.ui.table.setItem(0, 8, blue)
+                self.ui.table.setItem(0, 9, distancia)
+                encontrado = True
+            if(not encontrado):
+                QMessageBox.warning(
+                    self, 
+                    'Atencion',
+                    'Particula no encontrada'
+                )
+
+    @Slot()
+    def mostrarTabla(self):
+        self.ui.table.setColumnCount(10)
+        headers = ["ID", "OrigenX", "OrigenY", "DestinoX", "DestinoY", "Velocidad", "Red", "Green", "Blue", "Distancia"]
+        self.ui.table.setHorizontalHeaderLabels(headers)
+        self.ui.table.setRowCount((len(self.admin)))
+
+        row = 0
+        for particula in self.admin:
+            id = QTableWidgetItem(str(particula.getID))
+            origen_x = QTableWidgetItem(str(particula.getOrigenX))
+            origen_y = QTableWidgetItem(str(particula.getOrigenY))
+            destino_x = QTableWidgetItem(str(particula.getDestinoX))
+            destino_y = QTableWidgetItem(str(particula.getDestinoY))
+            velocidad = QTableWidgetItem(str(particula.getVelocidad))
+            red = QTableWidgetItem(str(particula.getRed))
+            green = QTableWidgetItem(str(particula.getGreen))
+            blue = QTableWidgetItem(str(particula.getBlue))
+            distancia = QTableWidgetItem(str(particula.getDistancia))
+
+            self.ui.table.setItem(row, 0, id)
+            self.ui.table.setItem(row, 1, origen_x)
+            self.ui.table.setItem(row, 2, origen_y)
+            self.ui.table.setItem(row, 3, destino_x)
+            self.ui.table.setItem(row, 4, destino_y)
+            self.ui.table.setItem(row, 5, velocidad)
+            self.ui.table.setItem(row, 6, red)
+            self.ui.table.setItem(row, 7, green)
+            self.ui.table.setItem(row, 8, blue)
+            self.ui.table.setItem(row, 9, distancia)
+            row += 1
 
     @Slot()
     def abrirArchivoJSON(self):

@@ -40,5 +40,46 @@ class Particula :
             "blue": self.__blue,
         }
 
+    
+    @property
+    def getID(self):
+        return self.__id
+
+    @property
+    def getOrigenX(self):
+        return self.__origen_x
+
+    @property
+    def getOrigenY(self):
+        return self.__origen_y
+
+    @property
+    def getDestinoX(self):
+        return self.__destino_x
+
+    @property
+    def getDestinoY(self):
+        return self.__destino_y
+
+    @property
+    def getVelocidad(self):
+        return self.__velocidad
+
+    @property
+    def getRed(self):
+        return self.__red
+
+    @property
+    def getGreen(self):
+        return self.__green
+
+    @property
+    def getBlue(self):
+        return self.__blue
+
+    @property
+    def getDistancia(self):
+        return self.__distancia
+
 # particula = Particula(1,2,3,4,5,6,7,8,9)
 # print(particula)

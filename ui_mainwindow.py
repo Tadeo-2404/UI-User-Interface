@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(466, 444)
+        MainWindow.resize(497, 456)
         MainWindow.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.actionGuardar = QAction(MainWindow)
         self.actionGuardar.setObjectName(u"actionGuardar")
@@ -29,7 +29,18 @@ class Ui_MainWindow(object):
 "")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.particular_container = QGroupBox(self.centralwidget)
+        self.tabWidget = QTabWidget(self.centralwidget)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setStyleSheet(u"background-color: rgb(138, 138, 138);\n"
+"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"color: rgb(0, 0, 0);")
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.gridLayout_3 = QGridLayout(self.tab)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.particular_container = QGroupBox(self.tab)
         self.particular_container.setObjectName(u"particular_container")
         self.particular_container.setStyleSheet(u"background-color: rgb(187, 199, 195);\n"
 "padding: 3px;")
@@ -207,18 +218,68 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.mostrarTodo_btn, 11, 0, 1, 2)
 
 
-        self.gridLayout_2.addWidget(self.particular_container, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.particular_container, 0, 0, 1, 1)
 
-        self.plainTextEdit = QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit = QPlainTextEdit(self.tab)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
         self.plainTextEdit.setMaximumSize(QSize(167, 16777215))
+        self.plainTextEdit.setStyleSheet(u"border-color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);\n"
+"")
 
-        self.gridLayout_2.addWidget(self.plainTextEdit, 0, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.plainTextEdit, 0, 1, 1, 1)
+
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.gridLayout_4 = QGridLayout(self.tab_2)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.input_buscar = QLineEdit(self.tab_2)
+        self.input_buscar.setObjectName(u"input_buscar")
+        self.input_buscar.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+
+        self.gridLayout_4.addWidget(self.input_buscar, 1, 0, 1, 1)
+
+        self.btn_buscar = QPushButton(self.tab_2)
+        self.btn_buscar.setObjectName(u"btn_buscar")
+        self.btn_buscar.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"padding: 2px;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"\n"
+"")
+
+        self.gridLayout_4.addWidget(self.btn_buscar, 1, 1, 1, 1)
+
+        self.btn_mostrar = QPushButton(self.tab_2)
+        self.btn_mostrar.setObjectName(u"btn_mostrar")
+        self.btn_mostrar.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"padding: 2px;\n"
+"\n"
+"")
+
+        self.gridLayout_4.addWidget(self.btn_mostrar, 1, 2, 1, 1)
+
+        self.table = QTableWidget(self.tab_2)
+        self.table.setObjectName(u"table")
+        self.table.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+
+        self.gridLayout_4.addWidget(self.table, 0, 0, 1, 3)
+
+        self.tabWidget.addTab(self.tab_2, "")
+
+        self.gridLayout_2.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 466, 22))
+        self.menubar.setGeometry(QRect(0, 0, 497, 22))
         self.menuArchivo = QMenu(self.menubar)
         self.menuArchivo.setObjectName(u"menuArchivo")
         MainWindow.setMenuBar(self.menubar)
@@ -231,6 +292,9 @@ class Ui_MainWindow(object):
         self.menuArchivo.addAction(self.actionAbrir)
 
         self.retranslateUi(MainWindow)
+
+        self.tabWidget.setCurrentIndex(0)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -253,6 +317,11 @@ class Ui_MainWindow(object):
         self.label_blue.setText(QCoreApplication.translate("MainWindow", u"Blue", None))
         self.mostrarTodo_btn.setText(QCoreApplication.translate("MainWindow", u"Mostrar todo", None))
         self.plainTextEdit.setPlainText("")
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Agregar", None))
+        self.input_buscar.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Introduce el ID a buscar", None))
+        self.btn_buscar.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
+        self.btn_mostrar.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 

@@ -34,6 +34,21 @@ class AdminParticulas:
             lista = json.load(archivo)
             self.__particulas = [Particula(**particula) for particula in lista]
 
+    def __len__(self):
+        return len(self.__particulas)
+
+    def __iter__(self):
+        self.cont = 0
+        return self
+
+    def __next__(self):
+        if self.cont < len(self.__particulas):
+            particula = self.__particulas[self.cont]
+            self.cont += 1
+            return particula
+        else:
+            raise StopIteration
+
 
 # particula01 = Particula(1, 900, 200, 30, 20, 40 ,54, 21, 84)
 # particula02 = Particula(2, 100, 0, 39, 19, 53 ,28, 43, 91)
