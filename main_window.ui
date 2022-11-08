@@ -25,14 +25,10 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(138, 138, 138);
-border: none;
-outline: none;
-text-transform: uppercase;
-color: rgb(0, 0, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -369,6 +365,50 @@ padding: 2px;
          <widget class="QTableWidget" name="table">
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Particulas</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0" colspan="2">
+         <widget class="QGraphicsView" name="graphicsView"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="btn_dibujar">
+          <property name="styleSheet">
+           <string notr="true">border: none;
+outline: none;
+text-transform: uppercase;
+color: rgb(255, 255, 255);
+background-color: rgb(226, 0, 0);
+padding: 2px;
+
+</string>
+          </property>
+          <property name="text">
+           <string>DIBUJAR</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="btn_limpiar">
+          <property name="styleSheet">
+           <string notr="true">border: none;
+outline: none;
+text-transform: uppercase;
+color: rgb(255, 255, 255);
+background-color: rgb(226, 0, 0);
+padding: 2px;
+
+</string>
+          </property>
+          <property name="text">
+           <string>LIMPIAR</string>
           </property>
          </widget>
         </item>

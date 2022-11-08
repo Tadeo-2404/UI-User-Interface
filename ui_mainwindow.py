@@ -31,11 +31,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setStyleSheet(u"background-color: rgb(138, 138, 138);\n"
-"border: none;\n"
-"outline: none;\n"
-"text-transform: uppercase;\n"
-"color: rgb(0, 0, 0);")
+        self.tabWidget.setStyleSheet(u"")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
         self.gridLayout_3 = QGridLayout(self.tab)
@@ -273,6 +269,42 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.table, 0, 0, 1, 3)
 
         self.tabWidget.addTab(self.tab_2, "")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.gridLayout_5 = QGridLayout(self.tab_3)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.graphicsView = QGraphicsView(self.tab_3)
+        self.graphicsView.setObjectName(u"graphicsView")
+
+        self.gridLayout_5.addWidget(self.graphicsView, 0, 0, 1, 2)
+
+        self.btn_dibujar = QPushButton(self.tab_3)
+        self.btn_dibujar.setObjectName(u"btn_dibujar")
+        self.btn_dibujar.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"padding: 2px;\n"
+"\n"
+"")
+
+        self.gridLayout_5.addWidget(self.btn_dibujar, 1, 0, 1, 1)
+
+        self.btn_limpiar = QPushButton(self.tab_3)
+        self.btn_limpiar.setObjectName(u"btn_limpiar")
+        self.btn_limpiar.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"padding: 2px;\n"
+"\n"
+"")
+
+        self.gridLayout_5.addWidget(self.btn_limpiar, 1, 1, 1, 1)
+
+        self.tabWidget.addTab(self.tab_3, "")
 
         self.gridLayout_2.addWidget(self.tabWidget, 0, 0, 1, 1)
 
@@ -293,7 +325,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -322,6 +354,9 @@ class Ui_MainWindow(object):
         self.btn_buscar.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.btn_mostrar.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Buscar", None))
+        self.btn_dibujar.setText(QCoreApplication.translate("MainWindow", u"DIBUJAR", None))
+        self.btn_limpiar.setText(QCoreApplication.translate("MainWindow", u"LIMPIAR", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Particulas", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 

@@ -1,5 +1,6 @@
-from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox, QGraphicsScene
 from PySide2.QtCore import Slot
+from PySide2.QtGui import QPen, QColor, QTransform
 from Particulas import Particula
 from AdminParticulas import AdminParticulas
 from ui_mainwindow import Ui_MainWindow
@@ -19,6 +20,32 @@ class MainWindow(QMainWindow):
 
         self.ui.btn_mostrar.clicked.connect(self.mostrarTabla)
         self.ui.btn_buscar.clicked.connect(self.buscarParticula)
+
+        self.ui.btn_dibujar.clicked.connect(self.dibujar)
+        self.ui.btn_limpiar.clicked.connect(self.limpiar)
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+
+    @Slot()
+    def dibujar(self):
+        lapiz = QPen()
+        lapiz.setWidth(2)
+
+        for particula in self.admin:
+            rojo = particula.getRed
+            green = particula.getGreen
+            blue = particula.getBlue
+            destino_x = particula.getDestinoX
+            destino_y = particula.getDestinoY
+            origen_x = particula.getOrigenX
+            origen_y = particula.getOrigenY
+            color = QColor(rojo, green, blue)
+            lapiz.setColor(color)
+            self.scene.addLine(origen_x, origen_y, destino_x, destino_y, lapiz)
+
+    @Slot()
+    def limpiar(self):
+        print('Limpiar')
 
     @Slot()
     def buscarParticula(self):
