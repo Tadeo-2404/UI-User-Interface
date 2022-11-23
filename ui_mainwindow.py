@@ -31,11 +31,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setStyleSheet(u"background-color: rgb(138, 138, 138);\n"
-"border: none;\n"
-"outline: none;\n"
-"text-transform: uppercase;\n"
-"color: rgb(0, 0, 0);")
+        self.tabWidget.setStyleSheet(u"")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
         self.gridLayout_3 = QGridLayout(self.tab)
@@ -273,6 +269,92 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.table, 0, 0, 1, 3)
 
         self.tabWidget.addTab(self.tab_2, "")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.gridLayout_5 = QGridLayout(self.tab_3)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.graphicsView = QGraphicsView(self.tab_3)
+        self.graphicsView.setObjectName(u"graphicsView")
+
+        self.gridLayout_5.addWidget(self.graphicsView, 0, 0, 1, 2)
+
+        self.btn_dibujar = QPushButton(self.tab_3)
+        self.btn_dibujar.setObjectName(u"btn_dibujar")
+        self.btn_dibujar.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"padding: 2px;\n"
+"\n"
+"")
+
+        self.gridLayout_5.addWidget(self.btn_dibujar, 1, 0, 1, 1)
+
+        self.btn_limpiar = QPushButton(self.tab_3)
+        self.btn_limpiar.setObjectName(u"btn_limpiar")
+        self.btn_limpiar.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"padding: 2px;\n"
+"\n"
+"")
+
+        self.gridLayout_5.addWidget(self.btn_limpiar, 1, 1, 1, 1)
+
+        self.tabWidget.addTab(self.tab_3, "")
+        self.tab_4 = QWidget()
+        self.tab_4.setObjectName(u"tab_4")
+        self.gridLayout_6 = QGridLayout(self.tab_4)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.btnSort_velocidad = QPushButton(self.tab_4)
+        self.btnSort_velocidad.setObjectName(u"btnSort_velocidad")
+        self.btnSort_velocidad.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"padding: 2px;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"\n"
+"")
+
+        self.gridLayout_6.addWidget(self.btnSort_velocidad, 1, 2, 1, 1)
+
+        self.btnSort_distancia = QPushButton(self.tab_4)
+        self.btnSort_distancia.setObjectName(u"btnSort_distancia")
+        self.btnSort_distancia.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"padding: 2px;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"\n"
+"")
+
+        self.gridLayout_6.addWidget(self.btnSort_distancia, 1, 1, 1, 1)
+
+        self.btnSort_id = QPushButton(self.tab_4)
+        self.btnSort_id.setObjectName(u"btnSort_id")
+        self.btnSort_id.setStyleSheet(u"border: none;\n"
+"outline: none;\n"
+"text-transform: uppercase;\n"
+"padding: 2px;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(226, 0, 0);\n"
+"\n"
+"")
+
+        self.gridLayout_6.addWidget(self.btnSort_id, 1, 0, 1, 1)
+
+        self.plainTextEditSort = QPlainTextEdit(self.tab_4)
+        self.plainTextEditSort.setObjectName(u"plainTextEditSort")
+        self.plainTextEditSort.setStyleSheet(u"width: 100%;")
+
+        self.gridLayout_6.addWidget(self.plainTextEditSort, 0, 0, 1, 3)
+
+        self.tabWidget.addTab(self.tab_4, "")
 
         self.gridLayout_2.addWidget(self.tabWidget, 0, 0, 1, 1)
 
@@ -293,7 +375,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -322,6 +404,13 @@ class Ui_MainWindow(object):
         self.btn_buscar.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.btn_mostrar.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Buscar", None))
+        self.btn_dibujar.setText(QCoreApplication.translate("MainWindow", u"DIBUJAR", None))
+        self.btn_limpiar.setText(QCoreApplication.translate("MainWindow", u"LIMPIAR", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Particulas", None))
+        self.btnSort_velocidad.setText(QCoreApplication.translate("MainWindow", u"sort velocidad", None))
+        self.btnSort_distancia.setText(QCoreApplication.translate("MainWindow", u"sort distancia", None))
+        self.btnSort_id.setText(QCoreApplication.translate("MainWindow", u"sort id", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"Ordenar", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 

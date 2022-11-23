@@ -1,5 +1,6 @@
-from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox, QGraphicsScene
 from PySide2.QtCore import Slot
+from PySide2.QtGui import QPen, QColor, QTransform
 from Particulas import Particula
 from AdminParticulas import AdminParticulas
 from ui_mainwindow import Ui_MainWindow
@@ -20,6 +21,55 @@ class MainWindow(QMainWindow):
         self.ui.btn_mostrar.clicked.connect(self.mostrarTabla)
         self.ui.btn_buscar.clicked.connect(self.buscarParticula)
 
+        self.ui.btn_dibujar.clicked.connect(self.dibujar)
+        self.ui.btn_limpiar.clicked.connect(self.limpiar)
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+
+        self.ui.btnSort_id.clicked.connect(self.ordenar_id)
+        self.ui.btnSort_distancia.clicked.connect(self.ordenar_distancia)
+        self.ui.btnSort_velocidad.clicked.connect(self.ordenar_velocidad)
+
+
+    @Slot()
+    def ordenar_id(self):
+        self.admin.ordenar_id()
+        self.ui.plainTextEditSort.clear()
+        self.ui.plainTextEditSort.insertPlainText(str(self.admin))
+
+    @Slot()
+    def ordenar_distancia(self):
+        self.admin.ordenar_distancia()
+        self.ui.plainTextEditSort.clear()
+        self.ui.plainTextEditSort.insertPlainText(str(self.admin))
+
+    @Slot()
+    def ordenar_velocidad(self):
+        self.admin.ordenar_velocidad()
+        self.ui.plainTextEditSort.clear()
+        self.ui.plainTextEditSort.insertPlainText(str(self.admin))
+
+    @Slot()
+    def dibujar(self):
+        lapiz = QPen()
+        lapiz.setWidth(2)
+
+        for particula in self.admin:
+            rojo = particula.red
+            green = particula.green
+            blue = particula.blue
+            destino_x = particula.destino_x
+            destino_y = particula.destino_y
+            origen_x = particula.origen_x
+            origen_y = particula.origen_y
+            color = QColor(rojo, green, blue)
+            lapiz.setColor(color)
+            self.scene.addLine(origen_x, origen_y, destino_x, destino_y, lapiz)
+
+    @Slot()
+    def limpiar(self):
+        self.scene.clear()
+
     @Slot()
     def buscarParticula(self):
         id = self.ui.input_buscar.text()
@@ -27,16 +77,16 @@ class MainWindow(QMainWindow):
         for particula in self.admin:
             if(id == str(particula.getID)):
                 self.ui.table.clear()
-                id = QTableWidgetItem(str(particula.getID))
-                origen_x = QTableWidgetItem(str(particula.getOrigenX))
-                origen_y = QTableWidgetItem(str(particula.getOrigenY))
-                destino_x = QTableWidgetItem(str(particula.getDestinoX))
-                destino_y = QTableWidgetItem(str(particula.getDestinoY))
-                velocidad = QTableWidgetItem(str(particula.getVelocidad))
-                red = QTableWidgetItem(str(particula.getRed))
-                green = QTableWidgetItem(str(particula.getGreen))
-                blue = QTableWidgetItem(str(particula.getBlue))
-                distancia = QTableWidgetItem(str(particula.getDistancia))
+                id = QTableWidgetItem(str(particula.id))
+                origen_x = QTableWidgetItem(str(particula.origen_x))
+                origen_y = QTableWidgetItem(str(particula.origen_y))
+                destino_x = QTableWidgetItem(str(particula.destino_x))
+                destino_y = QTableWidgetItem(str(particula.destino_y))
+                velocidad = QTableWidgetItem(str(particula.velocidad))
+                red = QTableWidgetItem(str(particula.red))
+                green = QTableWidgetItem(str(particula.green))
+                blue = QTableWidgetItem(str(particula.blue))
+                distancia = QTableWidgetItem(str(particula.distancia))
                 self.ui.table.setItem(0, 0, id)
                 self.ui.table.setItem(0, 1, origen_x)
                 self.ui.table.setItem(0, 2, origen_y)
@@ -64,16 +114,16 @@ class MainWindow(QMainWindow):
 
         row = 0
         for particula in self.admin:
-            id = QTableWidgetItem(str(particula.getID))
-            origen_x = QTableWidgetItem(str(particula.getOrigenX))
-            origen_y = QTableWidgetItem(str(particula.getOrigenY))
-            destino_x = QTableWidgetItem(str(particula.getDestinoX))
-            destino_y = QTableWidgetItem(str(particula.getDestinoY))
-            velocidad = QTableWidgetItem(str(particula.getVelocidad))
-            red = QTableWidgetItem(str(particula.getRed))
-            green = QTableWidgetItem(str(particula.getGreen))
-            blue = QTableWidgetItem(str(particula.getBlue))
-            distancia = QTableWidgetItem(str(particula.getDistancia))
+            id = QTableWidgetItem(str(particula.id))
+            origen_x = QTableWidgetItem(str(particula.origen_x))
+            origen_y = QTableWidgetItem(str(particula.origen_y))
+            destino_x = QTableWidgetItem(str(particula.destino_x))
+            destino_y = QTableWidgetItem(str(particula.destino_y))
+            velocidad = QTableWidgetItem(str(particula.velocidad))
+            red = QTableWidgetItem(str(particula.red))
+            green = QTableWidgetItem(str(particula.green))
+            blue = QTableWidgetItem(str(particula.blue))
+            distancia = QTableWidgetItem(str(particula.distancia))
 
             self.ui.table.setItem(row, 0, id)
             self.ui.table.setItem(row, 1, origen_x)
@@ -95,7 +145,7 @@ class MainWindow(QMainWindow):
             '.',
             'JSON (*.json)'
         )[0]
-        self.admin.abrirArchivo(ubicacion)
+        self.admin.abrir(ubicacion)
 
     @Slot()
     def guardarArchivoJSON(self):
@@ -105,7 +155,7 @@ class MainWindow(QMainWindow):
             '.',
             'JSON (*.json)'
         )[0]
-        self.admin.guardarArchivo(ubicacion)
+        self.admin.guardar(ubicacion)
     
     @Slot()
     def agregarInicio(self) :
@@ -119,7 +169,7 @@ class MainWindow(QMainWindow):
         green = self.ui.input_green.value()
         blue = self.ui.input_blue.value()
         particula = Particula(id, origen_x, origen_y, destino_x, destino_y, velocidad, red, green, blue)
-        self.admin.agregarInicio(particula)
+        self.admin.agregar_inicio(particula)
 
     @Slot()
     def agregarFinal(self) :
@@ -133,7 +183,7 @@ class MainWindow(QMainWindow):
         green = self.ui.input_green.value()
         blue = self.ui.input_blue.value()
         particula = Particula(id, origen_x, origen_y, destino_x, destino_y, velocidad, red, green, blue)
-        self.admin.agregarFinal(particula)
+        self.admin.agregar_final(particula)
 
     @Slot()
     def mostrarTodo(self) :
