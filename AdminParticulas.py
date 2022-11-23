@@ -1,61 +1,64 @@
 from Particulas import Particula
 import json
 
+
 class AdminParticulas:
     def __init__(self):
         self.__particulas = []
 
-    def agregarFinal(self, particula:Particula):
+    def agregar_final(self,particula:Particula):
         self.__particulas.append(particula)
+    
+    def agregar_inicio(self,particula:Particula):
+        self.__particulas.insert(0,particula)
 
-    def agregarInicio(self, particula:Particula):
-        self.__particulas.insert(0, particula)
-
-    def mostrarParticulas(self):
-        if(len(self.__particulas) == 0):
-            print("Lista Vacia") 
-
-        for particula in self.__particulas:
-            print(particula) 
-            print("\n")
-
-    def __str__(self) -> str:
+    def __str__(self):
         return "".join(
-           str(particula) for particula in self.__particulas
+            str(v) + "\n" for v in self.__particulas
         )
 
-    def guardarArchivo(self, ubicacion):
-        with open(ubicacion, 'w') as archivo:
-            lista = [particula.to_dict() for particula in self.__particulas]
-            json.dump(lista, archivo, indent=5)
-
-    def abrirArchivo(self, ubicacion):
-        with open(ubicacion, 'r') as archivo:
-            lista = json.load(archivo)
-            self.__particulas = [Particula(**particula) for particula in lista]
-
+    def guardar(self, ubicacion):
+        try:
+            with open(ubicacion, 'w') as archivo:
+                 lista = [particula.to_dict() for particula in self.__particulas]
+                 print(lista)
+                 json.dump(lista, archivo,indent = 5)
+                 return 1
+        except:
+            return 0
+    
+    def abrir(self, ubicacion):
+        try:
+            with open(ubicacion, 'r') as archivo:
+                lista = json.load(archivo)
+                self.__particulas = [Particula(**particula) for particula in lista]
+                return 1
+                
+        except:
+            return 0
+    
     def __len__(self):
-        return len(self.__particulas)
-
+        return(
+            len(self.__particulas)
+        )
+    
     def __iter__(self):
         self.cont = 0
         return self
-
     def __next__(self):
         if self.cont < len(self.__particulas):
-            particula = self.__particulas[self.cont]
+            avion = self.__particulas[self.cont]
             self.cont += 1
-            return particula
+            return avion
+        
         else:
             raise StopIteration
-
-
-# particula01 = Particula(1, 900, 200, 30, 20, 40 ,54, 21, 84)
-# particula02 = Particula(2, 100, 0, 39, 19, 53 ,28, 43, 91)
-# admin = AdminParticulas() 
-# admin.mostrarParticulas() #VACIO
-# admin.agregarInicio(particula01) 
-# admin.mostrarParticulas() #PARTICULA 1
-# admin.agregarFinal(particula02)
-# admin.mostrarParticulas()
-
+    
+    def ordenar_id(self):
+        self.__particulas.sort(key=lambda particula: particula.id)
+    
+    def ordenar_distancia(self):
+        self.__particulas.sort(key=lambda particula: particula.distancia, reverse=True)
+    
+    def ordenar_velocidad(self):
+        self.__particulas.sort(key=lambda particula: particula.velocidad)
