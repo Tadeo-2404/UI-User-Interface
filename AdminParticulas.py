@@ -33,9 +33,16 @@ class AdminParticulas:
                 lista = json.load(archivo)
                 self.__particulas = [Particula(**particula) for particula in lista]
                 return 1
-                
         except:
-            return 0
+            pass
+        try:
+            with open(ubicacion, 'r') as archivo:
+               lista = json.load(archivo)
+               self.__particulas = [Particula(p["id"], p["origen"]["x"], p["origen"]["y"], p["destino"]["x"], p["destino"]["y"], p["velocidad"], p["color"]["red"], p["color"]["green"], p["color"]["blue"]) for p in lista]
+               return True
+        except:
+            return False
+
     
     def __len__(self):
         return(
