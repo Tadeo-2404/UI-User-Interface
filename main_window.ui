@@ -28,7 +28,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -499,7 +499,21 @@ background-color: rgb(226, 0, 0);
     <addaction name="actionGuardar"/>
     <addaction name="actionAbrir"/>
    </widget>
+   <widget class="QMenu" name="menuVer">
+    <property name="title">
+     <string>Ver</string>
+    </property>
+    <addaction name="actionPuntos_Cercanos"/>
+   </widget>
+   <widget class="QMenu" name="menuAlgoritmos">
+    <property name="title">
+     <string>Algoritmos</string>
+    </property>
+    <addaction name="actionAlgoritmos"/>
+   </widget>
    <addaction name="menuArchivo"/>
+   <addaction name="menuVer"/>
+   <addaction name="menuAlgoritmos"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionGuardar">
@@ -510,6 +524,16 @@ background-color: rgb(226, 0, 0);
   <action name="actionAbrir">
    <property name="text">
     <string>Abrir</string>
+   </property>
+  </action>
+  <action name="actionPuntos_Cercanos">
+   <property name="text">
+    <string>Puntos </string>
+   </property>
+  </action>
+  <action name="actionAlgoritmos">
+   <property name="text">
+    <string>Puntos Cercanos</string>
    </property>
   </action>
  </widget>
