@@ -23,6 +23,10 @@ class Ui_MainWindow(object):
         self.actionGuardar.setObjectName(u"actionGuardar")
         self.actionAbrir = QAction(MainWindow)
         self.actionAbrir.setObjectName(u"actionAbrir")
+        self.actionPuntos_Cercanos = QAction(MainWindow)
+        self.actionPuntos_Cercanos.setObjectName(u"actionPuntos_Cercanos")
+        self.actionAlgoritmos = QAction(MainWindow)
+        self.actionAlgoritmos.setObjectName(u"actionAlgoritmos")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
@@ -364,18 +368,26 @@ class Ui_MainWindow(object):
         self.menubar.setGeometry(QRect(0, 0, 497, 22))
         self.menuArchivo = QMenu(self.menubar)
         self.menuArchivo.setObjectName(u"menuArchivo")
+        self.menuVer = QMenu(self.menubar)
+        self.menuVer.setObjectName(u"menuVer")
+        self.menuAlgoritmos = QMenu(self.menubar)
+        self.menuAlgoritmos.setObjectName(u"menuAlgoritmos")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
         self.menubar.addAction(self.menuArchivo.menuAction())
+        self.menubar.addAction(self.menuVer.menuAction())
+        self.menubar.addAction(self.menuAlgoritmos.menuAction())
         self.menuArchivo.addAction(self.actionGuardar)
         self.menuArchivo.addAction(self.actionAbrir)
+        self.menuVer.addAction(self.actionPuntos_Cercanos)
+        self.menuAlgoritmos.addAction(self.actionAlgoritmos)
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -385,6 +397,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.actionGuardar.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.actionAbrir.setText(QCoreApplication.translate("MainWindow", u"Abrir", None))
+        self.actionPuntos_Cercanos.setText(QCoreApplication.translate("MainWindow", u"Puntos ", None))
+        self.actionAlgoritmos.setText(QCoreApplication.translate("MainWindow", u"Puntos Cercanos", None))
         self.particular_container.setTitle(QCoreApplication.translate("MainWindow", u"UI-Particulas", None))
         self.label_origenX.setText(QCoreApplication.translate("MainWindow", u"Origen X", None))
         self.label_origenY.setText(QCoreApplication.translate("MainWindow", u"Origen Y", None))
@@ -412,5 +426,7 @@ class Ui_MainWindow(object):
         self.btnSort_id.setText(QCoreApplication.translate("MainWindow", u"sort id", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"Ordenar", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
+        self.menuVer.setTitle(QCoreApplication.translate("MainWindow", u"Ver", None))
+        self.menuAlgoritmos.setTitle(QCoreApplication.translate("MainWindow", u"Algoritmos", None))
     # retranslateUi
 
